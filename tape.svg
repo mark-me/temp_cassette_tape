@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="115.86474mm"
+   height="38.97604mm"
+   viewBox="0 0 115.86474 38.97604"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-12.170833,-85.195841)">
+    <path
+       d="m 73.325037,105.23035 c 0,7.47897 -3.171561,14.21527 -8.241507,18.93914 H 29.798698 c -5.069946,-4.72387 -8.241507,-11.46043 -8.241507,-18.93914 0,-8.076938 3.69914,-15.287098 9.491398,-20.034517 H 63.83311 c 5.792258,4.747419 9.491397,11.957579 9.491397,20.034517 z"
+       fill="#504f4f"
+       id="path4"
+       style="stroke-width:0.264583" />
+    <circle
+       cx="97.579391"
+       cy="105.23035"
+       r="16.516878"
+       fill="#504f4f"
+       id="circle4"
+       style="stroke-width:0.264583" />
+    <path
+       d="M 29.51771,96.266264 13.340027,123.78028 c -0.668602,-0.41989 -1.125538,-1.14908 -1.169194,-1.98569 L 27.780456,95.246296 Z"
+       fill="#504f4f"
+       id="path25"
+       style="stroke-width:0.264583" />
+    <polygon
+       points="465.86,231.07 457.02,231.07 399,132.39 405.57,128.53 "
+       fill="#504f4f"
+       id="polygon25"
+       transform="matrix(0.26458333,0,0,0.26458333,4.7767875,63.034598)" />
+  </g>
+</svg>

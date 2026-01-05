@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>🎵 Cassette Player — SVG Version</title>
+
+<style>
+    body {
+        font-family: system-ui, sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin: 0;
+        min-height: 100vh;
+    }
+
+    .cassette-body {
+        width: 800px;
+        aspect-ratio: 2 / 1.3;
+        background: #777;
+        border-radius: 10px;
+        padding: 12px;
+        box-shadow: 0 12px 24px rgba(0,0,0,.4);
+    }
+
+    .cassette-svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    /* Reel animation */
+    .reel.spinning {
+        animation: reelSpin 3s linear infinite;
+        transform-box: fill-box;
+        transform-origin: center;
+    }
+
+    @keyframes reelSpin {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(360deg); }
+    }
+
+    .controls {
+        position: absolute;
+        bottom: 30px;
+        display: flex;
+        gap: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        background: #444;
+        color: white;
+        font-size: 16px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="cassette-body">
+<svg
+    class="cassette-svg"
+    viewBox="0 0 900 585"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="xMidYMid meet">
+
+    <!-- =====================================================
+         CASSETTE BODY (same look as div)
+    ====================================================== -->
+    <rect
+        x="0" y="0"
+        width="900" height="585"
+        rx="16"
+        fill="url(#cassetteGradient)"
+        stroke="#5a5a5a"
+        stroke-width="6"/>
+
+    <defs>
+        <linearGradient id="cassetteGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#9a9a9a"/>
+            <stop offset="50%" stop-color="#7a7a7a"/>
+            <stop offset="100%" stop-color="#6a6a6a"/>
+        </linearGradient>
+    </defs>
+
+    <!-- =====================================================
+         LABEL (same geometry)
+    ====================================================== -->
+    <rect x="54" y="32" width="792" height="110" rx="6"
+          fill="#fff" stroke="#999" stroke-width="4"/>
+
+    <rect x="66" y="36" width="210" height="102" rx="4"
+          fill="url(#goldGradient)"/>
+
+    <defs>
+        <linearGradient id="goldGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ffc107"/>
+            <stop offset="50%" stop-color="#d4aa00"/>
+            <stop offset="100%" stop-color="#b8920d"/>
+        </linearGradient>
+    </defs>
+
+    <!-- =====================================================
+         WINDOW
+    ====================================================== -->
+    <rect x="72" y="170" width="756" height="280" rx="12"
+          fill="rgba(0,0,0,0.18)"
+          stroke="#504f4f"
+          stroke-width="4"/>
+
+    <!-- =====================================================
+         TAPE BACKGROUND (same position)
+    ====================================================== -->
+    <rect x="395" y="270" width="110" height="110" rx="3"
+          fill="#e0e0e0"/>
+
+    <!-- =====================================================
+         TAPE STRIPS (COPIED FROM YOUR SVG)
+    ====================================================== -->
+    <g transform="translate(72 170) scale(1.48)">
+        <svg viewBox="0 0 512 324.62">
+            <path d="M 93.509 125.6l-61.144 103.99
+                     c-2.527-1.587-4.254-4.343-4.419-7.505
+                     l58.997-100.34z"
+                  fill="#504f4f"/>
+            <polygon points="465.86,231.07 457.02,231.07
+                             399,132.39 405.57,128.53"
+                     fill="#504f4f"/>
+        </svg>
+    </g>
+
+    <!-- =====================================================
+         LEFT REEL (UNCHANGED SVG, SAME POSITION)
+    ====================================================== -->
+    <g id="left-reel" class="reel spinning"
+       transform="translate(300 310)">
+        <!-- EXACT reel SVG content goes here -->
+        <!-- paste your left reel SVG paths verbatim -->
+    </g>
+
+    <!-- =====================================================
+         RIGHT REEL (UNCHANGED SVG)
+    ====================================================== -->
+    <g id="right-reel" class="reel spinning"
+       transform="translate(600 310)">
+        <!-- paste your right reel SVG paths verbatim -->
+    </g>
+
+    <!-- =====================================================
+         BOTTOM PLATE (YOUR ORIGINAL SVG)
+    ====================================================== -->
+    <g transform="translate(250 470) scale(3)">
+        <svg viewBox="0 0 72.244476 15.794047">
+            <path d="M 153.07963,115.1481 H 83.761438
+                     c -0.80486,0 -1.46341,-0.65855
+                     -1.46341,-1.46341
+                     l 7.248,-12.86722
+                     c 0,-0.80486 0.65855,-1.463414
+                     1.46341,-1.463414
+                     h 54.821672
+                     c 0.80486,0 1.46341,0.658554
+                     1.46341,1.463414
+                     l 7.24799,12.86722
+                     c 0.00027,0.80486
+                     -0.65855,1.46341
+                     -1.46341,1.46341 z"
+                  fill="#5d5e5e"/>
+        </svg>
+    </g>
+
+</svg>
+</div>
+
+<div class="controls">
+    <button id="play">▶️ Play</button>
+    <button id="stop">⏹ Stop</button>
+</div>
+
+<script>
+    const leftReel = document.getElementById('left-reel');
+    const rightReel = document.getElementById('right-reel');
+    const playBtn = document.getElementById('play');
+    const stopBtn = document.getElementById('stop');
+
+    let playing = true;
+
+    playBtn.onclick = () => {
+        playing = !playing;
+        leftReel.classList.toggle('spinning', playing);
+        rightReel.classList.toggle('spinning', playing);
+        playBtn.textContent = playing ? '⏸ Pause' : '▶️ Play';
+    };
+
+    stopBtn.onclick = () => {
+        playing = false;
+        leftReel.classList.remove('spinning');
+        rightReel.classList.remove('spinning');
+        playBtn.textContent = '▶️ Play';
+    };
+</script>
+
+</body>
+</html>
+
